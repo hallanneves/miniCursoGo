@@ -73,15 +73,13 @@
 							  </tr>
 							</thead>
 							<tbody>
-							  <tr>
-								<td>John</td>
-								<td>Doe</td>
-								<td>john@example.com</td>
-							  </tr>
-							  {{ range $key, $value := .Contatos }}
-								<li><strong>{{ $key }}</strong>: {{ $value }}</li>
-							  {{ end }}
-							  
+							  {{ range $key, $value := . }}
+									<tr>
+										<td>{{ $value.Nome }}</td>
+										<td>{{ $value.Idade }}</td>
+										<td>{{ $value.Telefone }}</td>
+									</tr>
+							  {{ end }}							  
 							</tbody>
 						  </table>	
 			</div>

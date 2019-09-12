@@ -19,8 +19,8 @@ var validPath = regexp.MustCompile("^/(lista|save|novo)")
 
 //* Adapta a função para somente executar um temmplate e recebe o nome dele como parâmetro
 // substituí as linhas repetidas por uma função onde tratamos todos os erros
-func renderTemplate(w http.ResponseWriter, tmpl string, atributos ...interface{}) {
-	err := templates.ExecuteTemplate(w, tmpl+".html", atributos)
+func renderTemplate(w http.ResponseWriter, tmpl string, contatos []pacoteContatos.Contato) {
+	err := templates.ExecuteTemplate(w, tmpl+".html", contatos)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -51,13 +51,13 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	renderTemplate(w, "lista", contatos)
+	renderTemplate(w, "lista", contatos.Contatos)
 }
 
 //* Alterada para usar o renderTemplate e o getTitle
 //função que é chamada para responder a requisição do caminho /edit/
 func editHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "novo")
+	renderTemplate(w, "novo", nil)
 }
 
 //* Alterada para usar o renderTemplate e o getTitle
