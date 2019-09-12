@@ -13,7 +13,7 @@
 https://golang.org/doc/install
 
 
-### Olá mundo!:
+### Olá mundo:
 
     package main
     import "fmt"
