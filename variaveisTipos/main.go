@@ -52,4 +52,8 @@ func main() {
 
 	fmt.Println("Rota: " + strconv.Itoa(m["route"]))
 
+	//Não façam isso, ou façam, vai de vocês, eu acho estranho
+
+	var coração = 4
+	fmt.Println(coração)
 }
