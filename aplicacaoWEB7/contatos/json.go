@@ -3,7 +3,6 @@ package contatos
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
@@ -21,28 +20,31 @@ type Contato struct {
 }
 
 //CarregaContatos do json
-func CarregaContatos() Contatos {
+func CarregaContatos() (Contatos, error) {
+	var contatos Contatos
 
 	jsonFile, err := os.Open("contatos.json")
 	if err != nil {
-		log.Fatal(err)
+		return contatos, err
 	}
 	defer jsonFile.Close()
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	var contatos Contatos
-
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return contatos, err
+	}
 	json.Unmarshal(byteValue, &contatos)
 
-	return contatos
+	return contatos, nil
 }
 
 //SalvaContatos persiste os contatos adicionados
 func SalvaContatos(contatos Contatos) error {
-	file, _ := json.MarshalIndent(contatos, "", " ")
-
-	err := ioutil.WriteFile("test.json", file, 0644)
+	file, err := json.MarshalIndent(contatos, "", " ")
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile("test.json", file, 0644)
 
 	return err
 }
