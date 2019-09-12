@@ -1,0 +1,19 @@
+{
+ "contatos": [
+  {
+   "nome": "José",
+   "idade": 23,
+   "telefone": "(53) 3233-8340"
+  },
+  {
+   "nome": "João",
+   "idade": 17,
+   "telefone": "(53) 3233-9999"
+  },
+  {
+   "nome": "Andressa",
+   "idade": 28,
+   "telefone": "53981381388"
+  }
+ ]
+}

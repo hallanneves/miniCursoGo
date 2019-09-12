@@ -11,7 +11,7 @@ import (
 	pacoteContatos "github.com/hallanneves/miniCursoGo/aplicacaoWEB7/contatos"
 )
 
-var contatos []pacoteContatos.Contato
+var contatosGlobal []pacoteContatos.Contato
 
 var templates = template.Must(template.ParseFiles("novo.html", "lista.html"))
 
@@ -45,13 +45,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
 //* Alterada para usar o renderTemplate e o getTitle
 //função que é chamada para responder a requisição do caminho /view/
 func viewHandler(w http.ResponseWriter, r *http.Request) {
-	var contatos, err = pacoteContatos.CarregaContatos()
-	if err != nil {
-		fmt.Println(err)
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	renderTemplate(w, "lista", contatos.Contatos)
+	renderTemplate(w, "lista", contatosGlobal)
 }
 
 //* Alterada para usar o renderTemplate e o getTitle
@@ -72,8 +66,11 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	telefone := r.FormValue("telefone")
 
 	contatoNovo := pacoteContatos.Contato{Nome: nome, Idade: idade, Telefone: telefone}
-	contatos = append(contatos, contatoNovo)
-	contatoEstrutura := pacoteContatos.Contatos{Contatos: contatos}
+
+	fmt.Println(contatoNovo)
+
+	contatosGlobal = append(contatosGlobal, contatoNovo)
+	contatoEstrutura := pacoteContatos.Contatos{Contatos: contatosGlobal}
 
 	pacoteContatos.SalvaContatos(contatoEstrutura)
 
@@ -91,7 +88,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	contatos = contatosEstrutura.Contatos
+	contatosGlobal = contatosEstrutura.Contatos
 
 	http.HandleFunc("/lista/", makeHandler(viewHandler))
 	http.HandleFunc("/novo/", makeHandler(editHandler))
