@@ -1,19 +1,22 @@
 # Mini curso de GO
-### Neste curso vamos ver:
+
+Esse minicurso é introdutório e busca mostrar o potencial da linguagem e suas aplicações
+
+## Neste curso vamos ver
+
 - Estruturas condicionais;
 - Estruturas de repetição;
-- Structs e funções
-- Pacotes
-- Aplicação em um sistema WEB
+- Structs e funções;
+- Pacotes;
+- Aplicação em um sistema WEB;
 
-> Minicurso ministrado na Semana Acadêmica do IFRS - Rio Grande - 12/09/2019 <
+> Minicurso ministrado na Semana Acadêmica do IFRS - Rio Grande - 12/09/2019
 
-### Link para instalação do GO:
+## Link para instalação do GO
 
-https://golang.org/doc/install
+<https://golang.org/doc/install>
 
-
-### Olá mundo:
+## Olá mundo
 
     package main
     import "fmt"
