@@ -51,7 +51,8 @@ func main() {
 	// Inicializa o array de usuários
 	var usuarios Usuários
 
-	// o unmarshal conver o array de bytes na nossa estrutura
+	// o unmarshal converte o array de bytes na nossa estrutura
+	// O que é esse & aí ??
 	json.Unmarshal(byteValue, &usuarios)
 
 	// itera os cadastros
