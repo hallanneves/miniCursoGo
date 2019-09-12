@@ -1,0 +1,15 @@
+{
+    "contatos": [
+        {
+            "nome": "José",
+            "idade": 23,
+            "telefone": "(53) 3233-8340"
+            
+        },
+        {
+            "nome": "João",
+            "idade": 17,
+            "telefone": "(53) 3233-9999"
+        }
+    ]
+}
