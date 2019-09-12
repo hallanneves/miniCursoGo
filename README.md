@@ -4,9 +4,11 @@ Esse minicurso é introdutório e busca mostrar o potencial da linguagem e suas 
 
 ## Neste curso vamos ver
 
+- Variáveis e tipos;
 - Estruturas condicionais;
 - Estruturas de repetição;
 - Structs e funções;
+- Tratamento de erros;
 - Pacotes;
 - Aplicação em um sistema WEB;
 
