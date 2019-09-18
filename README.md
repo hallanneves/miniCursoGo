@@ -1,6 +1,6 @@
 # Mini curso de GO
 
-Esse minicurso é introdutório e busca mostrar o potencial da linguagem e suas aplicações
+Esse minicurso é introdutório e busca mostrar o potencial da linguagem e suas aplicações. No final deste curso os alunos estarão aptos a criar uma aplicação WEB completa e funcional com armazenamento de dados me JSON.
 
 ## Neste curso vamos ver
 
